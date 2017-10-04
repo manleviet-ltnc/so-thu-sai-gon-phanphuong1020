@@ -33,8 +33,10 @@ namespace SothuxiGon
             ListBox lb = (ListBox)sender;
             int index = lb.IndexFromPoint(e.X, e.Y);
 
-            lb.DoDragDrop(lb.Items[index].ToString(),
-                          DragDropEffects.Copy);
+            if(index != -1)
+
+                 lb.DoDragDrop(lb.Items[index].ToString(),
+                                DragDropEffects.Copy);
         }
 
         private void ListBox_DragEnter(object sender, DragEventArgs e)
@@ -66,13 +68,30 @@ namespace SothuxiGon
             writer.Close();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstThuMoi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void mnuLoad_Click(object sender, EventArgs e)
         {
             StreamReader reader = new StreamReader("thumoi.txt");
             if (reader == null) return;
 
             string input;
-            while((input = reader.ReadLine()) != null)
+            while ((input = reader.ReadLine()) != null)
             {
                 lstThuMoi.Items.Add(input);
             }
@@ -80,12 +99,23 @@ namespace SothuxiGon
 
             using (StreamReader rs = new StreamReader("danhsachthu.txt"))
             {
-                 input = null;
+                input = null;
                 while ((input = rs.ReadLine()) != null)
                 {
                     lstDanhSach.Items.Add(input);
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = string.Format("Bây giờ là {0}:{1}:{2} ngày {3} tháng {4} năm {5}",
+                                         DateTime.Now.Hour,
+                                         DateTime.Now.Minute,
+                                         DateTime.Now.Second,
+                                         DateTime.Now.Day,
+                                         DateTime.Now.Month,
+                                         DateTime.Now.Year);
         }
     }
 }
