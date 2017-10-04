@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SothuxiGon
 {
@@ -50,6 +51,40 @@ namespace SothuxiGon
             {
                 ListBox lb = (ListBox)sender;
                 lb.Items.Add(e.Data.GetData(DataFormats.Text));
+            }
+        }
+        private void Save(object sender, EventArgs e)
+        {
+            // Mo tap tin
+            StreamWriter writer = new StreamWriter("danhsachthu.txt");
+
+            if (writer == null) return;
+
+            foreach (var item in lstDanhSach.Items)
+                writer.WriteLine(item.ToString());
+
+            writer.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            StreamReader reader = new StreamReader("thumoi.txt");
+            if (reader == null) return;
+
+            string input;
+            while((input = reader.ReadLine()) != null)
+            {
+                lstThuMoi.Items.Add(input);
+            }
+            reader.Close();
+
+            using (StreamReader rs = new StreamReader("danhsachthu.txt"))
+            {
+                 input = null;
+                while ((input = rs.ReadLine()) != null)
+                {
+                    lstDanhSach.Items.Add(input);
+                }
             }
         }
     }

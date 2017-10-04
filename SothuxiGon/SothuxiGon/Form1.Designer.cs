@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lstThuMoi = new System.Windows.Forms.ListBox();
             this.lstDanhSach = new System.Windows.Forms.ListBox();
             this.btnChon = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -59,17 +62,11 @@
             this.lstThuMoi.AllowDrop = true;
             this.lstThuMoi.FormattingEnabled = true;
             this.lstThuMoi.ItemHeight = 20;
-            this.lstThuMoi.Items.AddRange(new object[] {
-            "Chó",
-            "Mèo",
-            "Khỉ",
-            "Sư tử",
-            "Báo",
-            "Trăn"});
             this.lstThuMoi.Location = new System.Drawing.Point(12, 50);
             this.lstThuMoi.Name = "lstThuMoi";
             this.lstThuMoi.Size = new System.Drawing.Size(168, 204);
             this.lstThuMoi.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.lstThuMoi, "Ấn chuột và kéo sang Danh sách thú để tạo Sở thú");
             this.lstThuMoi.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListBox_DragEnter);
             this.lstThuMoi.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseDown);
             // 
@@ -96,11 +93,23 @@
             this.btnChon.UseVisualStyleBackColor = true;
             this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(358, 302);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(164, 41);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Lưu danh sách";
+            this.toolTip1.SetToolTip(this.btnSave, "lưu danh sách con thú vào file danhsachthu.txt");
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.Save);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 294);
+            this.ClientSize = new System.Drawing.Size(543, 370);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnChon);
             this.Controls.Add(this.lstDanhSach);
             this.Controls.Add(this.lstThuMoi);
@@ -111,6 +120,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "So Thu Xi Gon";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +133,8 @@
         private System.Windows.Forms.ListBox lstThuMoi;
         private System.Windows.Forms.ListBox lstDanhSach;
         private System.Windows.Forms.Button btnChon;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
