@@ -117,5 +117,10 @@ namespace SothuxiGon
                                          DateTime.Now.Month,
                                          DateTime.Now.Year);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+        }
     }
 }
