@@ -48,7 +48,9 @@
             this.mnuCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCut = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPaste = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnDelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +64,6 @@
             this.label1.Size = new System.Drawing.Size(264, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thú mới";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -73,7 +74,6 @@
             this.label2.Size = new System.Drawing.Size(265, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Danh Sách Thú";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lstThuMoi
             // 
@@ -86,7 +86,6 @@
             this.lstThuMoi.Size = new System.Drawing.Size(264, 339);
             this.lstThuMoi.TabIndex = 2;
             this.toolTip1.SetToolTip(this.lstThuMoi, "Ấn chuột và kéo sang Danh sách thú để tạo Sở thú");
-            this.lstThuMoi.SelectedIndexChanged += new System.EventHandler(this.lstThuMoi_SelectedIndexChanged);
             this.lstThuMoi.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListBox_DragEnter);
             this.lstThuMoi.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseDown);
             // 
@@ -102,7 +101,6 @@
             this.lstDanhSach.TabIndex = 3;
             this.lstDanhSach.DragDrop += new System.Windows.Forms.DragEventHandler(this.lstDanhSach_DragDrop);
             this.lstDanhSach.DragEnter += new System.Windows.Forms.DragEventHandler(this.ListBox_DragEnter);
-            this.lstDanhSach.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseDown);
             // 
             // btnSave
             // 
@@ -122,6 +120,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lstThuMoi, 0, 1);
@@ -205,35 +204,60 @@
             this.sửaĐổiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCopy,
             this.mnuCut,
-            this.mnuPaste});
+            this.mnuPaste,
+            this.mnuDelete});
             this.sửaĐổiToolStripMenuItem.Name = "sửaĐổiToolStripMenuItem";
             this.sửaĐổiToolStripMenuItem.Size = new System.Drawing.Size(85, 29);
             this.sửaĐổiToolStripMenuItem.Text = "Sửa đổi";
             // 
             // mnuCopy
             // 
+            this.mnuCopy.Image = global::SothuxiGon.Properties.Resources.if_edit_copy_118918__1_;
             this.mnuCopy.Name = "mnuCopy";
             this.mnuCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.mnuCopy.Size = new System.Drawing.Size(190, 30);
+            this.mnuCopy.Size = new System.Drawing.Size(210, 30);
             this.mnuCopy.Text = "Sao";
             // 
             // mnuCut
             // 
+            this.mnuCut.Image = global::SothuxiGon.Properties.Resources.if_Cut_728989;
             this.mnuCut.Name = "mnuCut";
             this.mnuCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.mnuCut.Size = new System.Drawing.Size(190, 30);
+            this.mnuCut.Size = new System.Drawing.Size(210, 30);
             this.mnuCut.Text = "Cắt ";
             // 
             // mnuPaste
             // 
+            this.mnuPaste.Image = global::SothuxiGon.Properties.Resources.if_edit_paste_118923;
             this.mnuPaste.Name = "mnuPaste";
             this.mnuPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.mnuPaste.Size = new System.Drawing.Size(190, 30);
+            this.mnuPaste.Size = new System.Drawing.Size(210, 30);
             this.mnuPaste.Text = "Dán";
+            // 
+            // mnuDelete
+            // 
+            this.mnuDelete.Image = global::SothuxiGon.Properties.Resources.if_Streamline_70_185090;
+            this.mnuDelete.Name = "mnuDelete";
+            this.mnuDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.mnuDelete.Size = new System.Drawing.Size(210, 30);
+            this.mnuDelete.Text = "Xóa";
+            this.mnuDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(222, 416);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(45, 39);
+            this.btnDelete.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btnDelete, "lưu danh sách con thú vào file danhsachthu.txt");
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.mnuDelete_Click);
             // 
             // Form1
             // 
@@ -248,6 +272,7 @@
             this.MinimumSize = new System.Drawing.Size(547, 341);
             this.Name = "Form1";
             this.Text = "So Thu Xi Gon";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -279,6 +304,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuPaste;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem mnuDelete;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 

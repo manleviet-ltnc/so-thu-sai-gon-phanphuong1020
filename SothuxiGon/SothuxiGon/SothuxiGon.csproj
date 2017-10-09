@@ -88,5 +88,17 @@
   <ItemGroup>
     <None Include="Resources\save nhỏ1.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_edit-copy_118918 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Cut_728989.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_edit-paste_118923.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Streamline-70_185090.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

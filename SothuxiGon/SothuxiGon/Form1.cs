@@ -18,11 +18,6 @@ namespace SothuxiGon
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnChon_Click(object sender, EventArgs e)
         {
             lstDanhSach.Items.Add(lstThuMoi.SelectedItem);
@@ -47,6 +42,7 @@ namespace SothuxiGon
                 e.Effect = DragDropEffects.Move;
         }
 
+        bool isItemChanged = false;
         private void lstDanhSach_DragDrop(object sender, DragEventArgs e)
         {
             if(e.Data.GetDataPresent(DataFormats.Text))
@@ -54,7 +50,11 @@ namespace SothuxiGon
                 ListBox lb = (ListBox)sender;
                 lb.Items.Add(e.Data.GetData(DataFormats.Text));
             }
+
+            isItemChanged = true;
         }
+
+        bool isSaved = true;
         private void Save(object sender, EventArgs e)
         {
             // Mo tap tin
@@ -66,18 +66,8 @@ namespace SothuxiGon
                 writer.WriteLine(item.ToString());
 
             writer.Close();
-        }
 
-        
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstThuMoi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            isSaved = false;
         }
 
         private void mnuClose_Click(object sender, EventArgs e)
@@ -121,6 +111,35 @@ namespace SothuxiGon
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+        }
+
+        private void mnuDelete_Click(object sender, EventArgs e)
+        {
+            if (lstDanhSach.SelectedIndex != -1)
+                lstDanhSach.Items.RemoveAt(lstDanhSach.SelectedIndex);
+
+            isItemChanged = true;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isItemChanged == true)
+                if (isSaved)
+                {
+                    DialogResult result = MessageBox.Show("Bạn có muốn lưu danh sách?",
+                                                          "",
+                                                          MessageBoxButtons.YesNoCancel,
+                                                          MessageBoxIcon.None);
+                    if (result == DialogResult.Yes)
+                    {
+                        Save(sender, e);
+                        e.Cancel = false;
+                    }
+                    else if (result == DialogResult.No)
+                        e.Cancel = false;
+                    else
+                        e.Cancel = true;
+                }
         }
     }
 }
