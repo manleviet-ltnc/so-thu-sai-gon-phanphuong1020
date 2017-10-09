@@ -121,6 +121,9 @@
   <data name="if_edit-paste_118923" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\if_edit-paste_118923.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="if_Streamline-70_185090" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_Streamline-70_185090.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="save nhỏ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save nhỏ.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="save nhỏ1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save nhỏ1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="if_Streamline-70_185090" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\if_Streamline-70_185090.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="if_Streamline-70_1850901" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\if_Streamline-70_1850901.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

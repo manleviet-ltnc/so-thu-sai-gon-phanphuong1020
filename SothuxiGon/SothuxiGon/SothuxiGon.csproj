@@ -100,5 +100,8 @@
   <ItemGroup>
     <None Include="Resources\if_Streamline-70_185090.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Streamline-70_1850901.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
